@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Multiple Choice Quiz</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <h1>Multiple Choice Quiz</h1>
+      <h1>Multiple Choice Quiz</h1>
 
-        <!-- Title page -->
-        <div v-show="currentPage == 1">Welcome to my quiz
+      <!-- Title page -->
+      <div v-show="currentPage == 1">
+        Welcome to my quiz
         <button v-on:click="currentPage = 2">Test your knowledge</button>
+      </div>
+      <!-- Quiz page -->
+      <div v-show="currentPage == 2">
+        <div v-for="question in QUIZ">
+          <h2>{{question.title}}</h2>
+          {{question.questionText}}
+          <!-- Possibly bad code -->
+          <select v-model="userAnswer">
+            <option>{{question.answers[0]}}</option>
+            <option>{{question.answers[1]}}</option>
+            <option>{{question.answers[2]}}</option>
+            <option>{{question.answers[3]}}</option>
+          </select>
         </div>
-        <!-- Quiz page -->
+      </div>
 
-        <!-- Score page -->
+      <!-- Score page -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

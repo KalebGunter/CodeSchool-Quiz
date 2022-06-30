@@ -6,7 +6,7 @@
 var app = new Vue({
     el: "#app",
     data:{
-        QUIZ : [
+        QUIZ: [
             {
                 title: "Question 1",
                 questionText: "What is the 3rd letter in the alphabet?",
@@ -28,9 +28,43 @@ var app = new Vue({
                     {text: "1000", correct: false},
                 ],
                 userAnswer: ""
+            },
+            {
+                title: "Question 3",
+                questionText: "What percentage of the Earth is covered in water?",
+                answers: [
+                    {text: "70", correct: false},
+                    {text: "69", correct: false},
+                    {text: "71", correct: true},
+                    {text: "30", correct: false}
+                ],
+                userAnswer: ""
+            },
+            {
+            title: "Question 4",
+                questionText: "On what continent is the United States",
+                answers: [
+                    {text: "Africa", correct: false},
+                    {text: "South America", correct: false},
+                    {text: "North America", correct: true},
+                    {text: "Europe", correct: false}
+                ],
+                userAnswer: ""
+            },
+            {
+                title: "Question 5",
+                questionText: "What is the primary language of South America",
+                answers: [
+                    {text: "Mandarin", correct: false},
+                    {text: "English", correct: false},
+                    {text: "Spanish", correct: true},
+                    {text: "Portugese", correct: false}
+                ],
+                userAnswer: ""
             }
         ],
        currentPage: 1,
+    //    currentQuestion: 1,
     },
     methods:{
         // used for showing questions individually
