@@ -85,9 +85,10 @@ var app = new Vue({
         setPage: function (page) {},
         
         calculateScore: function () {
-            for (let i = 0; i < this.QUIZ.length; i++) {
-                for (let j = 0; i < 4; j++) {
-                    if (this.QUIZ[i].answers[j].text == this.QUIZ[i].answers[j].userAnswer) {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 4; j++) {
+                    console.log(i, j)
+                    if (this.QUIZ[i].answers[j].text == this.QUIZ[i].userAnswer) {
                         if (this.QUIZ[i].answers[j].correct == true) {
                             totalCorrect++;
                             this.QUIZanswers[i] = true
@@ -104,8 +105,11 @@ var app = new Vue({
             for (let i = 0; i < this.QUIZ.length; i++) {
                 if (this.QUIZ[i].userAnswer == "") {
                     isDisabled = 1;
+                    return;
                 }
+                console.log("This is working")
             }
+            isDisabled = 0;
         }
     },
     computed: {

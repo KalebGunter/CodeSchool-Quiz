@@ -18,7 +18,7 @@
           <h2>{{question.title}}</h2>
           {{question.questionText}}
           <!-- Possibly bad code -->
-          <select v-model="question.userAnswer">
+          <select v-on:click="isAllAnswered(); calculateScore();" v-model="question.userAnswer">
             <option v-on:click="isAllAnswered(); calculateScore();">
               {{question.answers[0].text}}
             </option>
