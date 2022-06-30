@@ -18,22 +18,20 @@
           <h2>{{question.title}}</h2>
           {{question.questionText}}
           <!-- Possibly bad code -->
-          <select v-on:click="isAllAnswered(); calculateScore();" v-model="question.userAnswer">
-            <option v-on:click="isAllAnswered(); calculateScore();">
-              {{question.answers[0].text}}
-            </option>
-            <option v-on:click="isAllAnswered(); calculateScore();">
-              {{question.answers[1].text}}
-            </option>
-            <option v-on:click="isAllAnswered(); calculateScore();">
-              {{question.answers[2].text}}
-            </option>
-            <option v-on:click="isAllAnswered(); calculateScore();">
-              {{question.answers[3].text}}
-            </option>
+          <select v-on:click="isAllAnswered()" v-model="question.userAnswer">
+            <option>{{question.answers[0].text}}</option>
+            <option>{{question.answers[1].text}}</option>
+            <option>{{question.answers[2].text}}</option>
+            <option>{{question.answers[3].text}}</option>
           </select>
         </div>
-        <button :disabled="isDisabled" v-on:click="currentPage = 3">
+        <button disabled v-if="isDisabled" v-on:click="currentPage = 3">
+          Submit Answers
+        </button>
+        <button
+          v-else="isDisabled"
+          v-on:click="currentPage = 3; calculateScore();"
+        >
           Submit Answers
         </button>
       </div>

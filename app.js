@@ -90,31 +90,40 @@ var app = new Vue({
                     console.log(i, j)
                     if (this.QUIZ[i].answers[j].text == this.QUIZ[i].userAnswer) {
                         if (this.QUIZ[i].answers[j].correct == true) {
-                            totalCorrect++;
-                            this.QUIZanswers[i] = true
-                        } else  if (this.QUIZanswers[i] == true) {
-                            this.QUIZanswers[i] == false;
-                            totalCorrect--;
+                            this.totalCorrect++;
+                            // this.QUIZanswers[i] = true
                         }
+                        // } else  if (this.QUIZanswers[i] == true) {
+                        //     this.QUIZanswers[i] == false;
+                        //     this.totalCorrect--;
+                        // }
                     } 
                 }
             }
         },
         isAllAnswered: function () {
-            isDisabled = 0;
             for (let i = 0; i < this.QUIZ.length; i++) {
                 if (this.QUIZ[i].userAnswer == "") {
-                    isDisabled = 1;
+                    this.isDisabled = 1;
                     return;
                 }
                 console.log("This is working")
             }
-            isDisabled = 0;
+            this.isDisabled = 0;
         }
     },
     computed: {
         // a function that returns true if 0 userAnswer fields are blank ("")
         // IF there is still 1 or more blank ("") userAnswer field, return false
-        areAllQuestionsAnswered: function () {}
+        areAllQuestionsAnswered: function () {
+            for (let i = 0; i < this.QUIZ.length; i++) {
+                if (this.QUIZ[i].userAnswer == "") {
+                    this.isDisabled = 1;
+                    return;
+                }
+                console.log("This is working")
+            }
+            this.isDisabled = 0;
+        }
     }
 });
