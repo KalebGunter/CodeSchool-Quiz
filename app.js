@@ -63,8 +63,16 @@ var app = new Vue({
                 userAnswer: ""
             }
         ],
+        QUIZanswers: [
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
        currentPage: 1,
        isDisabled: 1,
+       totalCorrect: 0,
   
     },
     methods:{
@@ -76,7 +84,21 @@ var app = new Vue({
 
         setPage: function (page) {},
         
-        calculateScore: function () {},
+        calculateScore: function () {
+            for (let i = 0; i < this.QUIZ.length; i++) {
+                for (let j = 0; i < 4; j++) {
+                    if (this.QUIZ[i].answers[j].text == this.QUIZ[i].answers[j].userAnswer) {
+                        if (this.QUIZ[i].answers[j].correct == true) {
+                            totalCorrect++;
+                            this.QUIZanswers[i] = true
+                        } else  if (this.QUIZanswers[i] == true) {
+                            this.QUIZanswers[i] == false;
+                            totalCorrect--;
+                        }
+                    } 
+                }
+            }
+        },
         isAllAnswered: function () {
             isDisabled = 0;
             for (let i = 0; i < this.QUIZ.length; i++) {
