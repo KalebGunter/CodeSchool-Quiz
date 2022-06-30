@@ -91,12 +91,7 @@ var app = new Vue({
                     if (this.QUIZ[i].answers[j].text == this.QUIZ[i].userAnswer) {
                         if (this.QUIZ[i].answers[j].correct == true) {
                             this.totalCorrect++;
-                            // this.QUIZanswers[i] = true
                         }
-                        // } else  if (this.QUIZanswers[i] == true) {
-                        //     this.QUIZanswers[i] == false;
-                        //     this.totalCorrect--;
-                        // }
                     } 
                 }
             }
@@ -107,7 +102,7 @@ var app = new Vue({
                     this.isDisabled = 1;
                     return;
                 }
-                console.log("This is working")
+                // console.log("This is working")
             }
             this.isDisabled = 0;
         }
