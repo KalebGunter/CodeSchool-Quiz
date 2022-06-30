@@ -19,12 +19,13 @@
           {{question.questionText}}
           <!-- Possibly bad code -->
           <select v-model="userAnswer">
-            <option>{{question.answers[0]}}</option>
-            <option>{{question.answers[1]}}</option>
-            <option>{{question.answers[2]}}</option>
-            <option>{{question.answers[3]}}</option>
+            <option v-on:click="isAllAnswered()">{{question.answers[0]}}</option>
+            <option v-on:click="isAllAnswered()">{{question.answers[1]}}</option>
+            <option v-on:click="isAllAnswered()">{{question.answers[2]}}</option>
+            <option v-on:click="isAllAnswered()">{{question.answers[3]}}</option>
           </select>
         </div>
+        <button :disabled="isDisabled">Submit Answers</button>
       </div>
 
       <!-- Score page -->

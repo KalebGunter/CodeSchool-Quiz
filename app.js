@@ -64,7 +64,8 @@ var app = new Vue({
             }
         ],
        currentPage: 1,
-    //    currentQuestion: 1,
+       isDisabled: 1,
+  
     },
     methods:{
         // used for showing questions individually
@@ -75,7 +76,15 @@ var app = new Vue({
 
         setPage: function (page) {},
         
-        calculateScore: function () {}
+        calculateScore: function () {},
+        isAllAnswered: function () {
+            isDisabled = 0;
+            for (let i = 0; i < this.QUIZ.length; i++) {
+                if (this.QUIZ[i].userAnswer == "") {
+                    isDisabled = 1;
+                }
+            }
+        }
     },
     computed: {
         // a function that returns true if 0 userAnswer fields are blank ("")
